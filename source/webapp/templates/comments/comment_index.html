@@ -25,20 +25,21 @@
     <hr/>
     <div class="row justify-content-center">
         {% for comment in comments %}
-            <div class="card border-dark mb-3 my_card" style="width: 18rem;">
-                <div class="card-body d-flex flex-column" >
-                    <a class="card_header_link" href="{% url 'article_view' comment.pk %}"><h5 class="card-title card_names">Article: {{ comment.article.title }}</h5></a>
-                    <a class="card_header_link" href="{% url 'comment_view' comment.pk %}"><h5 class="card-title card_names">Comment Text:{{ comment.text }}</h5></a>
-                    <h5> Commented by: <b>{{ comment.author}}</b></h5>
-                    <h5> Time created: <b>{{ comment.created_at}}</b></h5>
-                    <h5> Comment edited: <b>{{ comment.updated_at}}</b></h5>
-                    <hr>
-                    <div class="card_links mt-auto row justify-content-center">
-                        <a href="{% url "comment_update" comment.pk %}" class="edit_icon"><i class="fas fa-pencil-alt"></i></a>
-                        <a href="{% url "comment_delete" comment.pk %}" class="card-link trash_can"><i class="fas fa-trash-alt"></i></a>
+                <div class="card border-dark mb-3 my_card" style="width: 18rem;">
+                    <div class="card-body d-flex flex-column" >
+                        <h5 class="card-title card_names">Comment to: <a href="{% url 'article_view' comment.pk %}">{{ comment.article.title }}</a></h5>
+                        <h5 class="card-title card_names">{{ comment.text }}</h5>
+                        <h5> Commented by: <b>{{ comment.author}}</b></h5>
+                        <h5> Time created: <b>{{ comment.created_at}}</b></h5>
+                        <h5> Comment edited: <b>{{ comment.updated_at}}</b></h5>
+                        <a href="{% url 'comment_view' comment.pk %}"><h5>View Comment...</h5></a>
+                        <hr>
+                        <div class="card_links mt-auto row justify-content-center">
+                            <a href="{% url "comment_update" comment.pk %}" class="edit_icon"><i class="fas fa-pencil-alt"></i></a>
+                            <a href="{% url "comment_delete" comment.pk %}" class="card-link trash_can"><i class="fas fa-trash-alt"></i></a>
+                        </div>
                     </div>
                 </div>
-            </div>
         {% endfor %}
     </div>
 {% endblock %}

@@ -89,7 +89,7 @@ class CommentIndexView(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['comments'] = Comment.objects.all()
+        context['comments'] = Comment.objects.order_by('-created_at')
         return context
 
 
@@ -139,7 +139,6 @@ class CommentUpdateView(View):
         form = CommentForm(data=request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            comment.article = data['article'],
             comment.text = data['text'],
             comment.author = data['author'],
             comment.save()
@@ -158,4 +157,4 @@ class CommentDeleteView(View):
         pk = kwargs.get('pk')
         comment = get_object_or_404(Comment, pk=pk)
         comment.delete()
-        return redirect('comments/comment_index')
+        return redirect('comment_index')
