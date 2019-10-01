@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}{{ article.title }}{% endblock %}
+{% block menu %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+        <a class="nav-link new_nav_btn" href="{% url 'article_delete' article.pk %}">Delete<span class="sr-only">(current)</span></a>
+        <a class="nav-link new_nav_btn" href="{% url 'atricle_update' article.pk %}">Edit<span class="sr-only">(current)</span></a>
+
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+{% endblock %}
+{% block content %}
+    <h1 class="main_header"><b>{{ article.title}}</b></h1>
+    <h5> Author: <b>{{ article.author}}</b></h5>
+    <h5> Category: <b>{{ article.category|default_if_none:'No Category' }}</b></h5>
+    <h5>Created: <b>{{ article.created_at|date:'d.m.Y H:i:s' }}</b></h5>
+    <p><br>{{ article.text|escape|linebreaks }}</p>
+{% endblock %}
