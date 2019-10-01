@@ -62,8 +62,8 @@ class ArticleUpdateView(View):
         if form.is_valid():
             data = form.cleaned_data
             article.title = data['title']
-            article.author = data['author']
             article.text = data['text']
+            article.author = data['author']
             article.category = data['category']
             article.save()
             return redirect('article_view', pk=article.pk)
