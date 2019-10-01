@@ -1,10 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block menu %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+        <a class="navbar-brand" href="{% url 'comment_index' %}">Comments</a>
+        <a class="nav-link new_nav_btn" href="{% url 'comment_delete' comment.pk %}">Delete<span class="sr-only">(current)</span></a>
+        <a class="nav-link new_nav_btn" href="{% url 'comment_update' comment.pk %}">Edit<span class="sr-only">(current)</span></a>
 
-</body>
-</html>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </nav>
+{% endblock %}
+{% block title %}{{ comment.text }}{% endblock %}
+{% block content %}
+    <h1 class="main_header"><b>Comment to Article:{{ comment.article.title}}</b></h1>
+    <hr>
+    <h3> Time created: <b>{{ comment.created_at}}</b></h3>
+    <h5> Commented by: <b>{{ comment.author}}</b></h5>
+    <h5> Time created: <b>{{ comment.created_at}}</b></h5>
+    <h5> Comment edited: <b>{{ comment.updated_at}}</b></h5>
+{% endblock %}

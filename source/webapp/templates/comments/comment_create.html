@@ -1,10 +1,20 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-
-</body>
-</html>
+{% extends 'base.html' %}
+{% load staticfiles %}
+{% block title %}Add New Comment{% endblock %}
+{% block menu %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="{% url 'index' %}">Home</a>
+        <a class="navbar-brand" href="{% url 'comment_index' %}">Comments</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+</nav>
+{% endblock %}
+{% block content %}
+    <h1 class="main_header">Add New Comment</h1>
+    <div class="form_container">
+        <form class="my_form" method="POST" action="{% url "comment_add" %}">
+            {% include 'partial/article_form.html' with button_text="Create" %}
+        </form>
+    </div>
+{% endblock %}
