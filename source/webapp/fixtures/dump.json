@@ -1,0 +1,207 @@
+[
+{
+  "model": "webapp.article",
+  "pk": 1,
+  "fields": {
+    "title": "Article 1",
+    "text": "Article 1",
+    "author": "Me",
+    "created_at": "2019-09-03T14:17:12.139Z",
+    "updated_at": "2019-10-01T12:09:32.350Z",
+    "category": 1
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 2,
+  "fields": {
+    "title": "Article 2",
+    "text": "Another Article which was later renamed to Article 2",
+    "author": "Me",
+    "created_at": "2019-09-03T14:06:09.002Z",
+    "updated_at": "2019-10-01T12:10:02.244Z",
+    "category": 5
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 3,
+  "fields": {
+    "title": "Article 3",
+    "text": "Article 3",
+    "author": "He",
+    "created_at": "2019-09-03T14:09:48.915Z",
+    "updated_at": "2019-09-03T14:09:48.915Z",
+    "category": null
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 4,
+  "fields": {
+    "title": "Article 4",
+    "text": "Random text for article 4. Very interesting Article",
+    "author": "Author of Article 4",
+    "created_at": "2019-09-03T14:44:14.453Z",
+    "updated_at": "2019-10-01T12:10:58.300Z",
+    "category": 2
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 5,
+  "fields": {
+    "title": "Article 5",
+    "text": "Text for this article is not much different from other text written for other articles",
+    "author": "Damian Ranolds",
+    "created_at": "2019-09-24T05:29:56.892Z",
+    "updated_at": "2019-10-01T12:11:54.261Z",
+    "category": 6
+  }
+},
+{
+  "model": "webapp.article",
+  "pk": 7,
+  "fields": {
+    "title": "Article 6",
+    "text": "Benny Hill wrote this article so that I can use in my homework. Here comes some random text that represents this article.",
+    "author": "Benny Hill",
+    "created_at": "2019-10-01T10:38:27.294Z",
+    "updated_at": "2019-10-01T12:15:51.835Z",
+    "category": 4
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 1,
+  "fields": {
+    "article": 1,
+    "text": "Comment to Article 1",
+    "author": "Vasya",
+    "created_at": "2019-09-24T13:57:52.192Z",
+    "updated_at": "2019-10-01T12:53:11.873Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 3,
+  "fields": {
+    "article": 1,
+    "text": "Comment 3",
+    "author": "\u0410\u043d\u043e\u043d\u0438\u043c",
+    "created_at": "2019-09-24T14:02:20.378Z",
+    "updated_at": "2019-09-24T14:02:20.378Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 4,
+  "fields": {
+    "article": 2,
+    "text": "my random comment that for some reason is written under Categories tab",
+    "author": "Mike",
+    "created_at": "2019-10-01T09:41:40.772Z",
+    "updated_at": "2019-10-01T09:41:40.772Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 5,
+  "fields": {
+    "article": 5,
+    "text": "Damian writes as if he knows what he is writing about. Very good!",
+    "author": "Mike Pence",
+    "created_at": "2019-10-01T12:13:27.959Z",
+    "updated_at": "2019-10-01T12:13:27.960Z"
+  }
+},
+{
+  "model": "webapp.comment",
+  "pk": 6,
+  "fields": {
+    "article": 7,
+    "text": "I didn't like this Article. I will make sure that it will be put down by the administrator.",
+    "author": "",
+    "created_at": "2019-10-01T12:18:59.928Z",
+    "updated_at": "2019-10-01T12:18:59.928Z"
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 1,
+  "fields": {
+    "name": "Fantasy"
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 2,
+  "fields": {
+    "name": "Science Fiction"
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 3,
+  "fields": {
+    "name": "Romance"
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 4,
+  "fields": {
+    "name": "Classical"
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 5,
+  "fields": {
+    "name": "Professional"
+  }
+},
+{
+  "model": "webapp.category",
+  "pk": 6,
+  "fields": {
+    "name": "Other"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$rETxGUggP9m6$1+XpTSlJd0TUOGy4a5vygINOKbNt4VBXluA1qSdpgYY=",
+    "last_login": "2019-09-24T13:55:07.905Z",
+    "is_superuser": true,
+    "username": "admin",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-09-03T14:37:10.646Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$150000$nS8PlamwkRmE$xjIdZha0XWQh65xaazDikl8+Y7hbJIIDzkhvCTvfhVc=",
+    "last_login": "2019-09-27T14:47:43.906Z",
+    "is_superuser": true,
+    "username": "mike",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2019-09-27T14:47:32.258Z",
+    "groups": [],
+    "user_permissions": []
+  }
+}
+]

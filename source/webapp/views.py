@@ -139,8 +139,8 @@ class CommentUpdateView(View):
         form = CommentForm(data=request.POST)
         if form.is_valid():
             data = form.cleaned_data
-            comment.text = data['text'],
-            comment.author = data['author'],
+            comment.text = data['text']
+            comment.author = data['author']
             comment.save()
             return redirect('comment_view', pk=comment.pk)
         else:
