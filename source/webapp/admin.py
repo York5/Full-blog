@@ -18,6 +18,11 @@ class ArticleAdmin(admin.ModelAdmin):
     inlines = [CommentAdmin]
 
 
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['pk', 'name']
+    list_display_links = ['pk', 'name']
+
+
 admin.site.register(Article, ArticleAdmin)
 admin.site.register(Comment)
 admin.site.register(Category)

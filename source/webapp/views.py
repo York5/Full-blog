@@ -49,8 +49,8 @@ class ArticleUpdateView(View):
         article = get_object_or_404(Article, pk=pk)
         form = ArticleForm(data={
             'title': article.title,
-            'author': article.author,
             'text': article.text,
+            'author': article.author,
             'category': article.category_id
         })
         return render(request, 'update.html', context={'form': form, 'article': article})
