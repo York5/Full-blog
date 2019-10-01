@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {% load staticfiles %}
-{% block title %}Blog{% endblock %}
 {% block menu %}
     <nav class="navbar custom_nav navbar-expand-lg navbar-dark">
   <a class="navbar-brand" href="{% url 'index' %}">Home</a>
@@ -11,8 +10,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
-          <a class="new_review_btn" href="{% url 'article_add' %}"> Add Article <span class="sr-only">(current)</span></a>
-          <a class="new_review_btn" href="{% url 'comment_index' %}">Comments <span class="sr-only">(current)</span></a>
+        <a class="nav-link new_review_btn" href="{% url 'comment_add' %}">+ Add Comment <span class="sr-only">(current)</span></a>
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0">
@@ -23,20 +21,21 @@
 </nav>
 {% endblock %}
 {% block content %}
-    <h1 class="main_header">Articles</h1>
+    <h1 class="main_header">All Comments</h1>
     <hr/>
     <div class="row justify-content-center">
-        {% for article in articles %}
+        {% for comment in comments %}
             <div class="card border-dark mb-3 my_card" style="width: 18rem;">
                 <div class="card-body d-flex flex-column" >
-                    <a class="card_header_link" href="{% url 'article_view' article.pk %}"><h5 class="card-title card_names">{{ article.title }}</h5></a>
+                    <a class="card_header_link" href="{% url 'article_view' comment.pk %}"><h5 class="card-title card_names">Article: {{ comment.article.title }}</h5></a>
+                    <a class="card_header_link" href="{% url 'comment_view' comment.pk %}"><h5 class="card-title card_names">Comment Text:{{ comment.text }}</h5></a>
+                    <h5> Commented by: <b>{{ comment.author}}</b></h5>
+                    <h5> Time created: <b>{{ comment.created_at}}</b></h5>
+                    <h5> Comment edited: <b>{{ comment.updated_at}}</b></h5>
                     <hr>
-                    <h5 class="card-subtitle mb-2">Created by: {{ article.author }}</h5>
-                    <h5 class="card-subtitle mb-2">Category: {{ article.category|default_if_none:'No Category' }}</h5>
-                    <h6 class="card-subtitle mb-2 text-muted">Created: {{ article.created_at|date:'d.m.Y H:i:s' }}</h6>
                     <div class="card_links mt-auto row justify-content-center">
-                        <a href="{% url "article_update" article.pk %}" class="edit_icon"><i class="fas fa-pencil-alt"></i></a>
-                        <a href="{% url "article_delete" article.pk %}" class="card-link trash_can"><i class="fas fa-trash-alt"></i></a>
+                        <a href="{% url "comment_update" comment.pk %}" class="edit_icon"><i class="fas fa-pencil-alt"></i></a>
+                        <a href="{% url "comment_delete" comment.pk %}" class="card-link trash_can"><i class="fas fa-trash-alt"></i></a>
                     </div>
                 </div>
             </div>
